@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\MT5Connect;
 use Illuminate\Console\Command;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 
 class RefreshSessionMT5 extends Command
 {
@@ -69,5 +70,6 @@ class RefreshSessionMT5 extends Command
         $result = json_decode($response->getBody(), true);
         $data['manager_index'] = $result['Result'];
         MT5Connect::where('id', 1)->update($data);
+        DB::connection('markjnee')->select('update mt5_connect set session=' . $data['session'] . ', manager_index=' . $data['manager_index'] . 'where id=1');
     }
 }
