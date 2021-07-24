@@ -41,7 +41,7 @@ class RefreshSessionMT5 extends Command
     public function handle()
     {
         $mt5Url = 'http://79.143.176.19:17014/ManagerAPIFOREX/';
-        $endpoint = $mt5Url . 'LOGIN_SESSION?Email=startingmt5broker@gmail.com&Password=rasa8r&Source=1';
+        $endpoint = $mt5Url . 'LOGIN_SESSION?Email=smt5broker@gmail.com&Password=aatdad&Source=1';
         $client = new Client();
         $response = $client->request('GET', $endpoint);
         $result = json_decode($response->getBody());
