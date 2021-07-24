@@ -57,13 +57,13 @@ class RefreshSessionMT5 extends Command
             "ManagerID" => 1480,
             "ManagerIndex" => 0,
             "MT4_MT5" => 1,
-            "CreatedBy" => 1,
+            "CreatedBy" => 0,
             "oStatus" => 1,
             "ServerConfig" => "213.136.83.175:443",
             "ServerCode" => "Live",
-            "Password" => "G9istgg_ ",
+            "Password" => "G9istgg_",
             "oDemo" => 1,
-            "Session" => $data['session']
+            "Session" => "j923j3c1fdoc"
         ];
         $body = json_encode($param);
         $response = $client->request('POST', $endpoint, ['body' => $body]);
