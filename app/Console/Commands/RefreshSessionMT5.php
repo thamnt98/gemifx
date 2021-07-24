@@ -63,7 +63,7 @@ class RefreshSessionMT5 extends Command
             "ServerCode" => "Live",
             "Password" => "G9istgg_",
             "oDemo" => 1,
-            "Session" => "j923j3c1fdoc"
+            "Session" => $data['session']
         ];
         $body = json_encode($param);
         $response = $client->request('POST', $endpoint, ['body' => $body]);
