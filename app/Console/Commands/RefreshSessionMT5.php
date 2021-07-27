@@ -61,7 +61,7 @@ class RefreshSessionMT5 extends Command
             "oStatus" => 1,
             "ServerConfig" => "213.136.83.175:443",
             "ServerCode" => "Live",
-            "Password" => "G9istgg_",
+            "Password" => "G6istgg_",
             "oDemo" => 1,
             "Session" => $data['session']
         ];
