@@ -29,7 +29,7 @@
                         <div class="inner-body mg-main">
                             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#bepay" class="modal-with-form">
+                                    <a href="#">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center">
                                                 <img src="{{ asset('image/exnpay.jpg') }}" class="img-thumnail" alt="Project" style="height:110px">
@@ -82,7 +82,7 @@
                                     </div>
                                 </div>
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#vifa" class="modal-with-form">
+                                    <a href="#">
                                         <div class="thumbnail">
                                             <div class="thumb-preview" style="">
                                                 <img src="{{ asset('image/paynew.jpg') }}" class="img-responsive" alt="Project" style="height: 100%">
@@ -92,7 +92,7 @@
                                     </a>
                                 </div>
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#vifa" class="modal-with-form">
+                                    <a href="#">
                                         <div class="thumbnail">
                                             <div class="thumb-preview" style="">
                                                 <img src="{{ asset('image/vifapay.jpg') }}" class="img-responsive" alt="Project" style="padding-top:33px; padding-bottom: 33px;">
@@ -156,7 +156,7 @@
                                 {{-- </a>--}}
                                 {{-- </div>--}}
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#vifa" class="modal-with-form">
+                                    <a href="#">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center" style="margin-top:10px">
                                                 <img src="{{ asset('image/asia_pay.png') }}" class="img-thumnail" alt="Project">
