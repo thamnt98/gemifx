@@ -2,6 +2,16 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/magnific-popup.css')}}">
 <link rel="stylesheet" href="{{ asset('css/loader.css')}}">
+<style>
+
+    .local_bank_image{
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    .local_bank_item{
+        min-height: 212px;
+    }
+</style>
 @endsection
 @include('layouts.menutop')
 <header class="page-header">
@@ -24,12 +34,13 @@
     <div class="col-lg-12">
         <section class="panel">
             <div class="panel-body">
-                <section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+                <h2 style="padding-top : 20px">Thanh toán qua P2P</h2>
+                <section class="content-with-menu content-with-menu-has-toolbar media-gallery" style="min-height: unset;">
                     <div class="content-with-menu-container">
-                        <div class="inner-body mg-main">
+                        <div class="inner-body mg-main" style="min-height: unset;">
                             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#">
+                                    <a href="{{ route('deposit.bepay') }}">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center">
                                                 <img src="{{ asset('image/exnpay.jpg') }}" class="img-thumnail" alt="Project" style="height:110px">
@@ -37,52 +48,9 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="bepay" class="modal-block modal-block-primary mfp-hide">
-                                        <section class="panel">
-                                            <div class="panel-body">
-                                                <form class="ajax-form" class="form-horizontal" method="post" action="{{ route('transfer.exnpay') }}" novalidate="novalidate">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"><b>Amount of money
-                                                                (VND)</b></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="number" name="amount_money" class="form-control" placeholder="Amount of money" value="{{ old('amount_money') }}" />
-                                                            <div class="errors errors-amount_money"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"><b>Choose account</b></label>
-                                                        <div class="col-sm-9">
-                                                            <select name="login" id="" class="form-control">
-                                                                <option value="">Choose account</option>
-                                                                @foreach ($listAccounts as $account)
-                                                                @if (old('login') == $account)
-                                                                <option value="{{$account}}" selected>{{$account}}</option>
-                                                                @else
-                                                                <option value="{{$account}}">{{$account}}</option>
-                                                                @endif
-                                                                @endforeach
-                                                            </select>
-                                                            <div class="errors errors-login"></div>
-                                                        </div>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"></div>
-                                                        <div class="col-sm-9">
-                                                            <button type="submit" class="btn btn-primary">Transfer
-                                                            </button>
-                                                            <button class="btn btn-default modal-dismiss">Cancel
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </section>
-                                    </div>
                                 </div>
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#">
+                                    <a href="{{ route('deposit.bepay') }}">
                                         <div class="thumbnail">
                                             <div class="thumb-preview" style="">
                                                 <img src="{{ asset('image/paynew.jpg') }}" class="img-responsive" alt="Project" style="height: 100%">
@@ -120,11 +88,11 @@
                                                             <select name="login" id="" class="form-control">
                                                                 <option value="">Choose account</option>
                                                                 @foreach ($listAccounts as $account)
-                                                                @if (old('login') == $account)
-                                                                <option value="{{$account}}" selected>{{$account}}</option>
-                                                                @else
-                                                                <option value="{{$account}}">{{$account}}</option>
-                                                                @endif
+                                                                    @if (old('login') == $account)
+                                                                        <option value="{{$account}}" selected>{{$account}}</option>
+                                                                    @else
+                                                                        <option value="{{$account}}">{{$account}}</option>
+                                                                    @endif
                                                                 @endforeach
                                                             </select>
                                                             <div class="errors errors-login"></div>
@@ -200,7 +168,7 @@
                                                     <button type="button" class="btn btn-default copy copy_erc " onclick="copyLink('erc_code')">Copy to clipboard</button>
                                                 </div>
                                                 <button class="btn btn-secondary modal-dismiss">Cancel
-                                                            </button>
+                                                </button>
                                             </div>
 
                                         </section>
@@ -211,6 +179,33 @@
                         </div>
                     </div>
                 </section>
+                <h2>Local bank</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b>UNITED KINGDOM BANK</b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item ">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b class="">EUROPE BANK</b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b class="">SINGAPORE BANK</b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b class=""> AUSTRALIA BANK</b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b class="">HONGKONG BANK</b>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                        <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
+                        <b class="">JAPAN BANK</b>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
