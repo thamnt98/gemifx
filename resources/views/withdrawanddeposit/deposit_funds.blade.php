@@ -34,7 +34,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <div class="panel-body">
-                <h2 style="padding-top : 20px">Thanh toán qua P2P</h2>
+                <h2 style="padding-top : 20px">Local bank</h2>
                 <section class="content-with-menu content-with-menu-has-toolbar media-gallery" style="min-height: unset;">
                     <div class="content-with-menu-container">
                         <div class="inner-body mg-main" style="min-height: unset;">
@@ -179,29 +179,29 @@
                         </div>
                     </div>
                 </section>
-                <h2>Local bank</h2>
+                <h2>Thanh toán qua P2P</h2>
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b>UNITED KINGDOM BANK</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item ">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item ">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b class="">EUROPE BANK</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b class="">SINGAPORE BANK</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b class=""> AUSTRALIA BANK</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b class="">HONGKONG BANK</b>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 local_bank_item">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 local_bank_item">
                         <img src="{{ asset('image/local_bank.jpg') }}" class="local_bank_image">
                         <b class="">JAPAN BANK</b>
                     </div>
