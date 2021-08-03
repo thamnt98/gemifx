@@ -62,6 +62,9 @@ Route::group([
         Route::post('/bepay', 'BepayTransferController@main')->name('deposit.bepay.transfer');
         Route::post('/transfer/vifa', 'TransferByVifaController@main')->name('transfer.vifa');
         Route::post('/transfer/exnpay', 'ExnpayController@main')->name('transfer.exnpay');
+        Route::get('/winpay', 'GetFormWinpayController@main')->name('deposit.winpay');
+        Route::post('/winpay', 'WinpayTransferController@main')->name('deposit.winpay.transfer');
+
     });
     Route::group([
         'namespace' => 'Trading'

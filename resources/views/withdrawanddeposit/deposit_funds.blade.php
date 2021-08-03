@@ -59,8 +59,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#">
+                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2 winpay">
+                                    <a href="{{ route('deposit.winpay') }}">
                                         <div class="thumbnail">
                                             <div class="thumb-preview" style="">
                                                 <img src="{{ asset('image/vifapay.jpg') }}" class="img-responsive" alt="Project" style="padding-top:33px; padding-bottom: 33px;">
@@ -68,63 +68,10 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="loader" class="lds-dual-ring overlay hidden"></div>
-                                    <div id="vifa" class="modal-block modal-block-primary mfp-hide">
-                                        <section class="panel">
-                                            <div class="panel-body">
-                                                <form class="ajax-form" class="form-horizontal" method="post" action="{{ route('transfer.vifa') }}" novalidate="novalidate">
-                                                    @csrf
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"><b>Amount of money
-                                                                (VND)</b></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="number" name="amount_money" class="form-control" placeholder="Amount of money" value="{{ old('amount_money') }}" />
-                                                            <div class="errors errors-amount_money"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"><b>Choose account</b></label>
-                                                        <div class="col-sm-9">
-                                                            <select name="login" id="" class="form-control">
-                                                                <option value="">Choose account</option>
-                                                                @foreach ($listAccounts as $account)
-                                                                    @if (old('login') == $account)
-                                                                        <option value="{{$account}}" selected>{{$account}}</option>
-                                                                    @else
-                                                                        <option value="{{$account}}">{{$account}}</option>
-                                                                    @endif
-                                                                @endforeach
-                                                            </select>
-                                                            <div class="errors errors-login"></div>
-                                                        </div>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3"></div>
-                                                        <div class="col-sm-9">
-                                                            <button type="submit" class="btn btn-primary">Transfer
-                                                            </button>
-                                                            <button class="btn btn-default modal-dismiss">Cancel
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </section>
-                                    </div>
+
                                 </div>
-                                {{-- <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">--}}
-                                {{-- <a href="#">--}}
-                                {{-- <div class="thumbnail">--}}
-                                {{-- <div class="thumb-preview" style="padding-top:23.5px; padding-bottom:23.5px">--}}
-                                {{-- <img src="{{ asset('image/neteller.jpg') }}" class="img-responsive" alt="Project">--}}
-                                {{-- <div class="mg-thumb-options"></div>--}}
-                                {{-- </div>--}}
-                                {{-- </div>--}}
-                                {{-- </a>--}}
-                                {{-- </div>--}}
-                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="#">
+                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2 winpay">
+                                    <a href="{{ route('deposit.winpay') }}">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center" style="margin-top:10px">
                                                 <img src="{{ asset('image/asia_pay.png') }}" class="img-thumnail" alt="Project">

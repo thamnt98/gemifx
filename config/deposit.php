@@ -5,6 +5,10 @@ return [
         'secret_key' => 'DNYgNYT4Ab8DnFG1',
         'type' => 2
     ],
+    'winpay' => [
+        'api_key' => '210-krAIqJFumVXOGjYycZUo',
+        'url' => 'https://vwinpay.com/api/info'
+    ],
     'exnpay' => [
         'merchant_id' => 'E1000023',
         'secret_key' => 'n4T0IfpSbFMBPlqu',
@@ -23,12 +27,14 @@ return [
     'type' => [
         'vifa' => 1,
         'bepay' => 2,
-        'exnpay' => 3
+        'exnpay' => 3,
+        'winpay' => 4
     ],
     'type_text' => [
         1 => 'VIFA pay',
         2 => 'e-Banking',
-        3 => 'ExnPay'
+        3 => 'ExnPay',
+        4 => 'Vwinpay'
     ],
     'status' => [
         'yes' => 1,
