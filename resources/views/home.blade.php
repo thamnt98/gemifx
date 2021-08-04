@@ -5,6 +5,42 @@
 @endsection
 <header class="page-header">
     @include('layouts.menutop')
+    
+    <!-- Global site tag (gtag.js) - Google Ads: 434087338 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-434087338"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-434087338');
+</script>
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-434087338',
+    'value': 'replace with value',
+    'items': [{
+      'id': 'replace with value',
+      'google_business_vertical': 'retail'
+    }]
+  });
+</script>
+	
+	<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1200278040397126');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1200278040397126&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
 </header>
 @section('content')
     <div class="container-fluid">
