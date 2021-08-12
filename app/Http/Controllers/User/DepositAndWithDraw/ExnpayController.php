@@ -19,7 +19,6 @@ class ExnpayController extends Controller
         $url = null;
         $message = '';
         $code = 200;
-        $isValid = null;
         $price =  $request->amount_money;
         $login = $request->login;
         $isValid = $this->isValid(['amount_money' => $price, 'login' => $login]);
@@ -28,19 +27,19 @@ class ExnpayController extends Controller
             $isValid = $isValid->errors();
         } else {
             $user = Auth::user();
-
+            $isValid = null;
             $data['status'] = config('deposit.status.pending');
             $data['type'] = config('deposit.type.exnpay');
             $data['merchant_id'] = config('deposit.exnpay.merchant_id');
             $data['payment_method_id'] = 0;
             $data['mrc_order_id'] = $data['order_number'] = Str::random(6);
-            //        $data['merchant_customer'] =   str_replace(' ', '_', $user->full_name);
+                    $data['mrc_customer'] =  Auth::user()->email;
             $data['url_success'] = route('deposit.bepay');
-            $data['sign'] = md5($data['merchant_id'] . $data['mrc_order_id'] . $data['payment_method_id']. $price  .  config('deposit.exnpay.secret_key'));
-            //        $data['sign'] = md5($data['merchant_id'] . $data['mrc_order_id'] . $data['merchant_customer'] . $data['amount_money'] . $data['bank_code'] .  config('deposit.bepay.secret_key'));
+            $data['sign'] = md5($data['merchant_id'] . $data['mrc_order_id'] . $data['payment_method_id']. $data['mrc_customer'] . $price  .  config('deposit.exnpay.secret_key'));
+//                    $data['sign'] = md5($data['merchant_id'] . $data['mrc_order_id'] . $data['merchant_customer'] . $data['amount_money'] . $data['bank_code'] .  config('deposit.bepay.secret_key'));
             $data['amount'] = $price;
             $data['url_cancel'] = $data['url_success'] = $data['webhooks']= route('deposit.funds');
-            $endpoint = "https://service.exnpay.com/api/order/send";
+            $endpoint = "https://umediasoft.com/api/order/send";
             $client = new Client();
             $response = $client->post($endpoint, array(
                 'form_params' => $data

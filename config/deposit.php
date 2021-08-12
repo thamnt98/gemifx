@@ -10,8 +10,8 @@ return [
         'url' => 'https://vwinpay.com/api/info'
     ],
     'exnpay' => [
-        'merchant_id' => 'E1000023',
-        'secret_key' => 'n4T0IfpSbFMBPlqu',
+        'merchant_id' => 'U100009',
+        'secret_key' => '10$Vme25JFfi.Zrv',
         'type' => 2
     ],
     'vifa' => [
