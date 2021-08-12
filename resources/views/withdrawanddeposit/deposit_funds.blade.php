@@ -40,7 +40,7 @@
                         <div class="inner-body mg-main" style="min-height: unset;">
                             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
-                                    <a href="{{ route('deposit.bepay') }}">
+                                    <a href="#exnpay" class="modal-with-form">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center">
                                                 <img src="{{ asset('image/exnpay.jpg') }}" class="img-thumnail" alt="Project" style="height:110px">
@@ -48,6 +48,49 @@
                                             </div>
                                         </div>
                                     </a>
+                                    <div id="exnpay" class="modal-block modal-block-primary mfp-hide">
+                                        <section class="panel">
+                                            <div class="panel-body">
+                                                <form class="ajax-form" class="form-horizontal" method="post" action="{{ route('transfer.exnpay') }}" novalidate="novalidate">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><b>Amount of money
+                                                                (VND)</b></label>
+                                                        <div class="col-sm-9">
+                                                            <input type="number" name="amount_money" class="form-control" placeholder="Amount of money" value="{{ old('amount_money') }}" />
+                                                            <div class="errors errors-amount_money"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label"><b>Choose account</b></label>
+                                                        <div class="col-sm-9">
+                                                            <select name="login" id="" class="form-control">
+                                                                <option value="">Choose account</option>
+                                                                @foreach ($listAccounts as $account)
+                                                                    @if (old('login') == $account)
+                                                                        <option value="{{$account}}" selected>{{$account}}</option>
+                                                                    @else
+                                                                        <option value="{{$account}}">{{$account}}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            </select>
+                                                            <div class="errors errors-login"></div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3"></div>
+                                                        <div class="col-sm-9">
+                                                            <button type="submit" class="btn btn-primary">Transfer
+                                                            </button>
+                                                            <button class="btn btn-default modal-dismiss">Cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </section>
+                                    </div>
                                 </div>
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
                                     <a href="{{ route('deposit.bepay') }}">
