@@ -47,24 +47,23 @@ Route::group([
         Route::post('/my-profile/password', 'ChangePasswordController@main')->name('account.password.change');
         Route::get('/{login}/balance', 'GetBalanceByLoginController@main');
         Route::get('/send/otp', 'SendOTPController@main')->name('send.otp');
-//        Route::get('/otp/send', 'SendOTPController@main');
-//        Route::post('/otp/send', 'SendOTPController@send')->name('otp.send');
-//        Route::get('/otp/verify', 'VerifyOtpController@main');
-//        Route::post('/otp/verify', 'VerifyOtpController@verify')->name('otp.verify');
     });
     Route::group([
         'namespace' => 'DepositAndWithDraw'
     ], function () {
         Route::get('/deposit-funds', 'DepositFundsController@main')->name('deposit.funds');
-        Route::get('/withdrawal-funds', 'WithDrawFundsController@main')->name('withdraw.funds');
-        Route::post('/withdrawal-funds', 'CreateWithdrawalFundsController@main')->name('withdraw.funds.create');
+        Route::get('/withdrawal-funds', 'WithDrawFundsController@main')->name('withdraw.funds')->middleware('valid.email');
+        Route::post('/withdrawal-funds', 'CreateWithdrawalFundsController@main')->name('withdraw.funds.create')->middleware('valid.email');
         Route::get('/bepay', 'GetFormBepayController@main')->name('deposit.bepay');
         Route::post('/bepay', 'BepayTransferController@main')->name('deposit.bepay.transfer');
         Route::post('/transfer/vifa', 'TransferByVifaController@main')->name('transfer.vifa');
         Route::post('/transfer/exnpay', 'ExnpayController@main')->name('transfer.exnpay');
         Route::get('/winpay', 'GetFormWinpayController@main')->name('deposit.winpay');
         Route::post('/winpay', 'WinpayTransferController@main')->name('deposit.winpay.transfer');
-
+        Route::get('/valid/email', 'WithDrawFundsController@validateEmail')->name('valid.email.withdrawal');
+        Route::post('/validate/email', 'WithDrawFundsController@validateEmailPost')->name('valid.email.post');
+        Route::get('/valid/otp', 'WithDrawFundsController@validateOtp')->name('valid.otp')->middleware('valid.otp');
+        Route::post('/valid/otp', 'WithDrawFundsController@validateOtpPost')->name('valid.otp.post');
     });
     Route::group([
         'namespace' => 'Trading'
