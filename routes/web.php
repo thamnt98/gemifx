@@ -52,8 +52,8 @@ Route::group([
         'namespace' => 'DepositAndWithDraw'
     ], function () {
         Route::get('/deposit-funds', 'DepositFundsController@main')->name('deposit.funds');
-        Route::get('/withdrawal-funds', 'WithDrawFundsController@main')->name('withdraw.funds')->middleware('valid.email');
-        Route::post('/withdrawal-funds', 'CreateWithdrawalFundsController@main')->name('withdraw.funds.create')->middleware('valid.email');
+        Route::get('/withdrawal-funds', 'WithDrawFundsController@main')->name('withdraw.funds')->middleware('check.image','valid.email');
+        Route::post('/withdrawal-funds', 'CreateWithdrawalFundsController@main')->name('withdraw.funds.create')->middleware('check.image','valid.email');
         Route::get('/bepay', 'GetFormBepayController@main')->name('deposit.bepay');
         Route::post('/bepay', 'BepayTransferController@main')->name('deposit.bepay.transfer');
         Route::post('/transfer/vifa', 'TransferByVifaController@main')->name('transfer.vifa');

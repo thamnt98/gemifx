@@ -20,7 +20,7 @@ class User extends Authenticatable
         'proof_of_address',
         'addtional_file',
         'ib_id',
-        'isVerified'
+        'check_active'
     ];
 
     protected $hidden = [

@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'valid.email' => \App\Http\Middleware\ValidateWidthdrawal::class,
         'valid.otp' => \App\Http\Middleware\ValidateOtpEmail::class,
+        'check.image' => \App\Http\Middleware\CheckImage::class,
     ];
 }
