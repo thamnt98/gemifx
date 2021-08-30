@@ -19,6 +19,11 @@
 </header>
 @section('content')
 <div class="row">
+    @if($user->check_active == 1)
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <h3 style="color: #1da21b">Tài khoản của bạn đã được xác thực</h3>
+    </div>
+    @endif
     <div class="col-lg-12">
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block" style="margin: 0px 15px 20px 15px">
