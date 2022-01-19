@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Helper\MT5Helper;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OpenIBAccountController extends Controller
 {
@@ -20,9 +22,12 @@ class OpenIBAccountController extends Controller
      */
     private $mT5Helper;
 
-    public function __construct(MT5Helper $mT5Helper)
+    private $logger;
+
+    public function __construct(MT5Helper $mT5Helper, Log $logger)
     {
         $this->mT5Helper = $mT5Helper;
+        $this->logger = $logger;
     }
 
 
@@ -61,21 +66,26 @@ class OpenIBAccountController extends Controller
             'ZipCode' => $user->zip_code,
             'Address' => $user->address
         ];
+        DB::beginTransaction();
         try {
             $result = $this->mT5Helper->openAccount($params);
             if ($result['ERR_MSG'] != null) {
                 return redirect()->back()->with('error', "Can\'t open MT5 Account. Please try again later");
             }
+            $this->logger->info('Result open account: ', ['result' => $result]);
             $data['login'] = $result['Account'];
             $data['user_id'] = $user->id;
             $data['phone_number'] = substr($phone, 1);
             $account = LiveAccount::create($data);
+            $this->logger->info('Login after save live account: ', ['account' => $account]);
+            DB::commit();
             Mail::to($user->email)->send(new OpenLiveAccountSuccess($user, $account, $result['Pwd_Master']));
             return redirect()->back()->with(
                 'success',
                 "Open live account successfully. Please check your inbox or spam to login into MetaTrader 5"
             );
         } catch (Exception $e) {
+            DB::rollBack();
             return redirect()->back()->with('error', "Something went wrong. Please try again");
         }
     }
