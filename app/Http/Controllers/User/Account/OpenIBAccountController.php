@@ -24,10 +24,9 @@ class OpenIBAccountController extends Controller
 
     private $logger;
 
-    public function __construct(MT5Helper $mT5Helper, Log $logger)
+    public function __construct(MT5Helper $mT5Helper)
     {
         $this->mT5Helper = $mT5Helper;
-        $this->logger = $logger;
     }
 
 
@@ -72,12 +71,12 @@ class OpenIBAccountController extends Controller
             if ($result['ERR_MSG'] != null) {
                 return redirect()->back()->with('error', "Can\'t open MT5 Account. Please try again later");
             }
-            $this->logger->info('Result open account: ', ['result' => $result]);
+            Log::info('Result open account: ', ['result' => $result]);
             $data['login'] = $result['Account'];
             $data['user_id'] = $user->id;
             $data['phone_number'] = substr($phone, 1);
             $account = LiveAccount::create($data);
-            $this->logger->info('Login after save live account: ', ['account' => $account]);
+            Log::info('Login after save live account: ', ['account' => $account]);
             DB::commit();
             Mail::to($user->email)->send(new OpenLiveAccountSuccess($user, $account, $result['Pwd_Master']));
             return redirect()->back()->with(
