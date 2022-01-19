@@ -76,7 +76,7 @@ class OpenIBAccountController extends Controller
             $data['phone_number'] = substr($phone, 1);
             $account = LiveAccount::create([
                 'user_id' => $user->id,
-                'login' => $result['Account'],
+                'login' => (string)$result['Account'],
                 'group' => $data['group'],
                 'leverage' => $data['leverage'],
                 'phone_number' => $data['phone_number'],
