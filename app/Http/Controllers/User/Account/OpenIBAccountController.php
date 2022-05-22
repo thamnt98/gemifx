@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Helper\MT5Helper;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OpenIBAccountController extends Controller
 {
@@ -19,6 +21,7 @@ class OpenIBAccountController extends Controller
      * @var mT5Helper
      */
     private $mT5Helper;
+
 
     public function __construct(MT5Helper $mT5Helper)
     {
@@ -61,21 +64,34 @@ class OpenIBAccountController extends Controller
             'ZipCode' => $user->zip_code,
             'Address' => $user->address
         ];
+        DB::beginTransaction();
         try {
             $result = $this->mT5Helper->openAccount($params);
             if ($result['ERR_MSG'] != null) {
                 return redirect()->back()->with('error', "Can\'t open MT5 Account. Please try again later");
             }
+            Log::info('Result open account: ', ['result' => $result]);
             $data['login'] = $result['Account'];
             $data['user_id'] = $user->id;
             $data['phone_number'] = substr($phone, 1);
-            $account = LiveAccount::create($data);
+            $account = LiveAccount::create([
+                'user_id' => $user->id,
+                'login' => (string)$result['Account'],
+                'group' => $data['group'],
+                'leverage' => $data['leverage'],
+                'phone_number' => $data['phone_number'],
+                'ib_id' => $data['ib_id']
+            ]);
+            Log::info('Login after save live account: ', ['account' => $account]);
+            DB::commit();
             Mail::to($user->email)->send(new OpenLiveAccountSuccess($user, $account, $result['Pwd_Master']));
             return redirect()->back()->with(
                 'success',
                 "Open live account successfully. Please check your inbox or spam to login into MetaTrader 5"
             );
         } catch (Exception $e) {
+            DB::rollBack();
+            Log::debug('Save fail', ['error' => $e->getMessage()]);
             return redirect()->back()->with('error', "Something went wrong. Please try again");
         }
     }
