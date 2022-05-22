@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 class MT5Helper
 {
-    protected static $mt5Url = 'http://79.143.176.19:17014/ManagerAPIFOREX/';
+    protected static $mt5Url = 'http://176.9.76.135:8261/ForexManagerAPI/';
 
     public static function getMT5Connect(){
         return MT5Connect::first();
