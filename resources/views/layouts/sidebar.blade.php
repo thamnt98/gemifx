@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="level-1" data-toggle="partnership">
-                            <a href="https://ib.gemifx.com/register">
+                            <a href="https://ibgemi.com/register">
                                 <i class="fa fa-users" aria-hidden="true"></i>
                                 <span>IB Partnership</span>
                             </a>
