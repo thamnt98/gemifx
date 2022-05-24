@@ -92,7 +92,7 @@
                                         </section>
                                     </div>
                                 </div>
-                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
+                                {{-- <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
                                     <a href="{{ route('deposit.bepay') }}">
                                         <div class="thumbnail">
                                             <div class="thumb-preview" style="">
@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
                                 <div class="isotope-item document col-sm-6 col-md-4 col-lg-2 winpay">
                                     <a href="{{ route('deposit.winpay') }}">
                                         <div class="thumbnail">
