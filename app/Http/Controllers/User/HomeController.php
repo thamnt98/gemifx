@@ -28,7 +28,8 @@ class HomeController extends Controller
         $logins = LiveAccount::where('user_id', $userId)->pluck('login');
         $balances = [];
         foreach ($logins as $login) {
-            $result = $this->mT5Helper->getAccountInfo($login);
+            $result = [];
+            // $result = $this->mT5Helper->getAccountInfo($login);
             if($result) {
                 $balances[$login]['balance'] = $result->oInfo->Balance;
                 $balances[$login]['group'] = $result->oInfo->Group;

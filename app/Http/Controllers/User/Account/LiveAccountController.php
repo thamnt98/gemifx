@@ -23,6 +23,7 @@ class LiveAccountController extends Controller
 
     public function main(Request $request)
     {
+        return redirect()->route('home');
         $liveAccounts = LiveAccount::where('user_id', Auth::user()->id)->get();
         $phone = $request->mobile_no;
         $ibId = Auth::user()->ib_id;

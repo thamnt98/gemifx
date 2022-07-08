@@ -22,6 +22,7 @@ class MTPasswordController extends Controller
 
     public function main()
     {
+        return redirect()->route('home');
         $logins = LiveAccount::where('user_id', Auth::user()->id)->pluck('login');
         $data = [];
         if (count($logins)) {
