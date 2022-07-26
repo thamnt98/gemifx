@@ -123,7 +123,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
+                                {{-- <div class="isotope-item document col-sm-6 col-md-4 col-lg-2">
                                     <a href="#tether" class="modal-with-form">
                                         <div class="thumbnail">
                                             <div class="thumb-preview text-center">
@@ -164,7 +164,7 @@
                                         </section>
 
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
